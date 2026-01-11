@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scriptoria Company</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Playfair Display', serif;
+}
+body{
+    background:#FFF8E7;
+    color:#4A3624;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+a{
+    color:#D4AF37;
+    text-decoration:none;
+}
+a:hover{color:#FFD700;}
+html{scroll-behavior:smooth;}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#14386bdd;
+    box-shadow:0 4px 20px rgba(0,0,0,0.25);
+    z-index:1000;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.brand img{
+    width:90px;
+    height:auto;
+}
+.brand h1{
+    font-family:'Great Vibes', cursive !important;
+    font-size:4.6rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    color:#D4AF37;
+    text-shadow: 1px 1px 0 #8c6b1f, 3px 3px 10px rgba(0,0,0,0.35);
+    margin:0;
+    line-height:1;
+}
+nav a{
+    margin-left:32px;
+    font-weight:600;
+    color:#FFF8E7;
+    transition:.3s;
+}
+nav a:hover{color:#D4AF37;}
+
+/* ===== HERO ===== */
+.hero{
+    height:130vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:url('dreamina-2026-01-09-1234-Apply a soft watercolor wash over the bl....jpeg') center/cover no-repeat;
+    position:relative;
+    padding:0 30px;
+    overflow:hidden;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(26,61,109,0.45);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+.hero-content.visible{
+    opacity:1;
+    transform: translateY(0);
+}
+.hero h2{
+    font-family:'Great Vibes', cursive;
+    font-size:3.2rem;
+    color:#FFD700;
+    margin-bottom:15px;
+    letter-spacing:1.5px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+}
+.hero h3{
+    font-family:'Playfair Display', serif;
+    font-size:2rem;
+    color:#FFD700;
+    margin-bottom:15px;
+    font-weight:700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+.hero p{
+    max-width:700px;
+    font-size:1.3rem;
+    line-height:1.8;
+    margin:auto;
+    color:#FFD700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ===== PROFIL ===== */
+.profile{
+    max-width:900px;
+    margin:120px auto 80px;
+    text-align:center;
+    padding:0 20px;
+}
+.profile h3{
+    font-size:2.5rem;
+    color:#1A3D6D;
+    margin-bottom:25px;
+}
+.profile p{
+    font-size:1.2rem;
+    margin-bottom:15px;
+    line-height:1.8;
+    text-align:justify;
+    opacity:0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#1A3D6D;
+    padding:50px 30px;
+    text-align:center;
+    color:#FFF8E7;
+}
+footer .social{
+    margin:20px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+footer .social a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:50px; height:50px;
+    background:#D4AF37; color:#1A3D6D;
+    border-radius:50%;
+    font-size:1.3rem;
+    transition:all 0.3s;
+}
+footer .social a:hover{
+    background:#1A3D6D;
+    color:#D4AF37;
+    transform:scale(1.2);
+    box-shadow:0 0 15px rgba(212,175,55,0.6);
+}
+
+/* ===== SPONSOR ===== */
+.sponsor{
+    margin-top:30px;
+}
+.sponsor-list{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+.sponsor-list img{
+    height:45px;
+    max-width:160px;
+    opacity:0.85;
+    transition:.3s;
+}
+.sponsor-list img:hover{
+    opacity:1;
+    transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        gap:10px;
+        padding:15px 20px;
+    }
+    nav a{margin-left:15px;}
+    .brand h1{font-size:2.5rem;}
+    .hero h2{font-size:2rem;}
+    .hero h3{font-size:1.5rem;}
+    .hero p{font-size:1.1rem;}
+    .profile h3{font-size:2rem;}
+    .profile p{font-size:1rem;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="brand">
+        <img src="dreamina-2026-01-09-1234-Apply_a_soft_watercolor_wash_over_the_bl...-removebg-preview.png" alt="Scriptoria Logo">
+        <h1>Scriptoria Company</h1>
+    </div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="services.html">Layanan</a>
+        <a href="galery.html">Galeri</a>
+        <a href="contact.html">Kontak</a>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-content" id="heroContent">
+        <h2 id="greeting"></h2>
+        <h3>Melestarikan Kata, Menciptakan Warisan Abadi</h3>
+        <p>
+            Setiap buku yang kami terbitkan mengutamakan kualitas cetak premium, desain elegan, dan nilai artistik tinggi. 
+            Karya kami adalah warisan abadi yang memperkaya pengetahuan dan keindahan literasi generasi mendatang.
+        </p>
+    </div>
+</section>
+
+<!-- ===== PROFIL ===== -->
+<section class="profile">
+    <h3>Profil Perusahaan</h3>
+    <p>
+        Scriptoria Company adalah perusahaan percetakan dan penerbitan buku yang mengedepankan kualitas dan keindahan setiap karya. 
+        Kami memadukan teknik cetak modern dengan sentuhan artistik sehingga setiap buku bukan hanya berisi informasi, tetapi juga memiliki nilai estetika tinggi.
+    </p>
+    <p>
+        Kami bekerja sama dengan penulis, desainer, dan editor profesional untuk menghasilkan karya yang abadi. 
+        Fokus kami adalah menciptakan buku dengan desain elegan, tata letak rapi, serta cover yang menarik dan mewah.
+    </p>
+    <p>
+        Misi kami adalah memastikan setiap karya yang diterbitkan dapat menjadi inspirasi dan warisan budaya bagi pembaca, 
+        sambil menjaga kualitas, estetika, dan nilai artistik tinggi dari setiap buku. 
+        Dengan pengalaman dan dedikasi, Scriptoria Company berkomitmen menjadi penerbit pilihan yang menciptakan karya abadi.
+    </p>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>&copy; 2026 Scriptoria Company</p>
+    <p>Hubungi Kami</p>
+    <div class="social">
+        <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/username" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/username" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/username" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <!-- ===== SPONSOR ===== -->
+    <div class="sponsor">
+        <div class="sponsor-list">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw3Ia5hhUTgzHWIbf4iStZZJKoCSnY-mZaDg&s" alt="Gojek">
+            <img src="https://play-lh.googleusercontent.com/ythqzIVsI_09q9T--hPCAsYRj_glbN_tZqjyJaDmoqM7-BVuGEE3DWxVdjM6rhjHcQU" alt="Sponsor">
+            <img src="https://storage.googleapis.com/bosshire-public/job-portal/companies/image/007ed156-4e15-48b7-96c5-5e8e6cb22923-Square%20Logo.png" alt="Gramedia">
+            <img src="https://futureskills.id/fs/uploads/mitras/64ba0c687557d_1689914472.png" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/LOGO-PERPUSNAS.svg" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Seal_of_the_Ministry_of_Religious_Affairs_of_the_Republic_of_Indonesia.svg" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg" alt="Google">
+            <img src="https://images.seeklogo.com/logo-png/37/1/tokopedia-logo-png_seeklogo-373974.png" alt="Google">
+            <img src="https://yt3.googleusercontent.com/DMpZ5fRSYeWWGtHHFwfE1uIu4xdEr5gW8ygUjDoNUoMl0iHkOEPiY4M2Llmsg6zU6FZYRX5H=s900-c-k-c0x00ffffff-no-rj" alt="Google">
+            <img src="https://stra-pi.s3.ap-southeast-1.amazonaws.com/Untitled_Project_51_20cee75366.jpg" alt="Google">
+            <img src="https://images.squarespace-cdn.com/content/v1/5ef76b6482c2bd41d40cc305/1611050881224-C9J8Q1RLLXQPYCQOSFAU/lazada.jpg" alt="Google">
+            <img src="https://upgris.ac.id/wp-content/uploads/2023/02/cropped-logo-upgris1-6-e1676989305971.png" alt="Google">
+        </div>
+    </div>
+</footer>
+
+<script>
+// ===== GREETING OTOMATIS =====
+const greetingEl = document.getElementById("greeting");
+const now = new Date();
+const hours = now.getHours();
+if(hours >= 5 && hours < 12){
+    greetingEl.textContent = "Selamat Pagi";
+} else if(hours >= 12 && hours < 15){
+    greetingEl.textContent = "Selamat Siang";
+} else if(hours >= 15 && hours < 18){
+    greetingEl.textContent = "Selamat Sore";
+} else{
+    greetingEl.textContent = "Selamat Malam";
+}
+
+// ===== HERO FADE-UP ANIMASI =====
+window.addEventListener('load', () => {
+    document.getElementById('heroContent').classList.add('visible');
+});
+
+// ===== PROFIL FADE-IN ANIMASI =====
+const profileParagraphs = document.querySelectorAll(".profile p");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+},{threshold:0.2});
+profileParagraphs.forEach(p => observer.observe(p));
+
+// ===== HERO PARALLAX SEDERHANA =====
+window.addEventListener("scroll", () => {
+    const scrollPos = window.scrollY;
+    const heroContent = document.getElementById('heroContent');
+    heroContent.style.transform = `translateY(${scrollPos * 0.2}px)`;
+});
+</script>
+
+</body>
+</html>
