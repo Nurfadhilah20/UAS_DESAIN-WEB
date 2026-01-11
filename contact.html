@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scriptoria Company - Kontak</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Playfair Display', serif;
+}
+body{
+    background:#FFF8E7;
+    color:#4A3624;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+a{
+    color:#D4AF37;
+    text-decoration:none;
+}
+a:hover{color:#FFD700;}
+html{scroll-behavior:smooth;}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#14386bdd;
+    box-shadow:0 4px 20px rgba(0,0,0,0.25);
+    z-index:1000;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.brand img{
+    width:90px;
+    height:auto;
+}
+.brand h1{
+    font-family:'Great Vibes', cursive !important;
+    font-size:4.6rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    color:#D4AF37;
+    text-shadow: 1px 1px 0 #8c6b1f, 3px 3px 10px rgba(0,0,0,0.35);
+    margin:0;
+    line-height:1;
+}
+nav a{
+    margin-left:32px;
+    font-weight:600;
+    color:#FFF8E7;
+    transition:.3s;
+}
+nav a:hover{color:#D4AF37;}
+
+/* ===== HERO ===== */
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(26,61,109,0.45);
+}
+.hero-content{
+    position:relative;
+    z-index:2;
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+.hero-content.visible{
+    opacity:1;
+    transform: translateY(0);
+}
+.hero h3{
+    font-family:'Playfair Display', serif;
+    font-size:2rem;
+    color:#FFD700;
+    font-weight:700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+/* ===== HUBUNGI KAMI ===== */
+.contact-section{
+    max-width:780px;
+    margin:80px auto;
+    background:#FFF;
+    padding:55px 50px;
+    border-radius:22px;
+    box-shadow:0 18px 45px rgba(0,0,0,0.12);
+    opacity:0;
+    transform: translateY(40px);
+    transition: all 1s ease-out;
+}
+.contact-section.visible{
+    opacity:1;
+    transform: translateY(0);
+}
+.contact-section h3{
+    text-align:center;
+    color:#1A3D6D;
+    margin-bottom:40px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+.contact-form{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:26px;
+}
+.contact-form label{
+    font-weight:600;
+    margin-bottom:6px;
+    display:block;
+}
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px 16px;
+    border:2px solid #D4AF37;
+    border-radius:12px;
+    font-size:1rem;
+    transition:.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+    outline:none;
+    border-color:#1A3D6D;
+    box-shadow:0 0 12px rgba(26,61,109,0.25);
+}
+.form-button{
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+}
+.contact-form button{
+    background:#D4AF37;
+    color:#1A3D6D;
+    border:none;
+    padding:15px 55px;
+    border-radius:35px;
+    font-weight:600;
+    font-size:1.05rem;
+    transition:.4s;
+    cursor:pointer;
+}
+.contact-form button:hover{
+    background:#1A3D6D;
+    color:#D4AF37;
+    transform:scale(1.08);
+}
+.company-info{
+    margin-top:55px;
+    padding-top:35px;
+    border-top:1px solid rgba(0,0,0,0.1);
+    text-align:center;
+}
+.company-info h4{
+    color:#1A3D6D;
+    margin-bottom:15px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+    background:#1A3D6D;
+    padding:50px 30px;
+    text-align:center;
+    color:#FFF8E7;
+}
+footer .social{
+    margin:20px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+footer .social a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:50px; height:50px;
+    background:#D4AF37; color:#1A3D6D;
+    border-radius:50%;
+    font-size:1.3rem;
+    transition:all 0.3s;
+}
+footer .social a:hover{
+    background:#1A3D6D;
+    color:#D4AF37;
+    transform:scale(1.2);
+    box-shadow:0 0 15px rgba(212,175,55,0.6);
+}
+
+/* ===== SPONSOR ===== */
+.sponsor{
+    margin-top:30px;
+}
+.sponsor-list{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+.sponsor-list img{
+    height:45px;
+    max-width:160px;
+    opacity:0.85;
+    transition:.3s;
+}
+.sponsor-list img:hover{
+    opacity:1;
+    transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        gap:10px;
+        padding:15px 20px;
+    }
+    nav a{margin-left:15px;}
+    .brand h1{font-size:2.5rem;}
+    .hero h3{font-size:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+    <div class="brand">
+        <img src="dreamina-2026-01-09-1234-Apply_a_soft_watercolor_wash_over_the_bl...-removebg-preview.png" alt="Scriptoria Logo">
+        <h1>Scriptoria Company</h1>
+    </div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="services.html">Layanan</a>
+        <a href="galery.html">Galeri</a>
+        <a href="contact.html">Kontak</a>
+    </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-content" id="heroContent">
+        <h3>Hubungi Kami</h3>
+    </div>
+</section>
+
+<!-- ===== HUBUNGI KAMI ===== -->
+<section class="contact-section" id="contactSection">
+    <h3>Hubungi Kami</h3>
+    <form class="contact-form">
+        <div>
+            <label>Nama</label>
+            <input type="text" placeholder="Masukkan nama lengkap">
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" placeholder="Masukkan email aktif">
+        </div>
+        <div>
+            <label>Pesan</label>
+            <textarea rows="5" placeholder="Tulis pesan Anda di sini"></textarea>
+        </div>
+        <div class="form-button">
+            <button type="submit">Kirim Pesan</button>
+        </div>
+    </form>
+    <div class="company-info">
+        <h4>Informasi Kontak</h4>
+        <p>Email: info@scriptoria.com</p>
+        <p>Telepon: +62 812 3456 7890</p>
+        <p>Jakarta, Indonesia</p>
+    </div>
+</section>
+
+<!-- ===== FOOTER + SPONSOR ===== -->
+<footer>
+    <p>&copy; 2026 Scriptoria Company</p>
+    <p>Hubungi Kami</p>
+    <div class="social">
+        <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/username" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/username" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/username" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <div class="sponsor">
+        <div class="sponsor-list">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw3Ia5hhUTgzHWIbf4iStZZJKoCSnY-mZaDg&s" alt="Gojek">
+        <img src="https://play-lh.googleusercontent.com/ythqzIVsI_09q9T--hPCAsYRj_glbN_tZqjyJaDmoqM7-BVuGEE3DWxVdjM6rhjHcQU" alt="Sponsor">
+        <img src="https://storage.googleapis.com/bosshire-public/job-portal/companies/image/007ed156-4e15-48b7-96c5-5e8e6cb22923-Square%20Logo.png" alt="Gramedia">
+        <img src="https://futureskills.id/fs/uploads/mitras/64ba0c687557d_1689914472.png" alt="Google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/LOGO-PERPUSNAS.svg" alt="Google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Seal_of_the_Ministry_of_Religious_Affairs_of_the_Republic_of_Indonesia.svg" alt="Google">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg" alt="Google">
+        <img src="https://images.seeklogo.com/logo-png/37/1/tokopedia-logo-png_seeklogo-373974.png" alt="Google">
+        <img src="https://yt3.googleusercontent.com/DMpZ5fRSYeWWGtHHFwfE1uIu4xdEr5gW8ygUjDoNUoMl0iHkOEPiY4M2Llmsg6zU6FZYRX5H=s900-c-k-c0x00ffffff-no-rj" alt="Google">
+        <img src="https://stra-pi.s3.ap-southeast-1.amazonaws.com/Untitled_Project_51_20cee75366.jpg" alt="Google">
+        <img src="https://images.squarespace-cdn.com/content/v1/5ef76b6482c2bd41d40cc305/1611050881224-C9J8Q1RLLXQPYCQOSFAU/lazada.jpg" alt="Google">
+        <img src="https://upgris.ac.id/wp-content/uploads/2023/02/cropped-logo-upgris1-6-e1676989305971.png" alt="Google">
+        </div>
+    </div>
+</footer>
+
+<script>
+// Animasi fade-up hero
+window.addEventListener('load', () => {
+    document.getElementById('heroContent').classList.add('visible');
+});
+
+// Animasi fade-in untuk form kontak
+const contactSection = document.getElementById('contactSection');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('visible');
+        }
+    });
+},{threshold:0.2});
+observer.observe(contactSection);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scriptoria Company - Galeri</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/* ===== GLOBAL ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Playfair Display', serif;
+}
+body{
+    background:#FFF8E7;
+    color:#4A3624;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+a{
+    color:#D4AF37;
+    text-decoration:none;
+}
+a:hover{color:#FFD700;}
+html{scroll-behavior:smooth;}
+
+/* ===== NAVBAR ===== */
+header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:18px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#14386bdd;
+    box-shadow:0 4px 20px rgba(0,0,0,0.25);
+    z-index:1000;
+}
+.brand{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.brand img{
+    width:90px;
+    height:auto;
+}
+.brand h1{
+    font-family:'Great Vibes', cursive !important;
+    font-size:4.6rem;
+    font-weight:800;
+    letter-spacing:1.5px;
+    color:#D4AF37;
+    text-shadow: 1px 1px 0 #8c6b1f, 3px 3px 10px rgba(0,0,0,0.35);
+    margin:0;
+    line-height:1;
+}
+nav a{
+    margin-left:32px;
+    font-weight:600;
+    color:#FFF8E7;
+    transition:.3s;
+}
+nav a:hover{color:#D4AF37;}
+
+/* ===== HERO ===== */
+.hero{
+    height:250px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    background:#1A3D6D url('https://images.unsplash.com/photo-1596495577886-5cddf0fc8b8e') center/cover no-repeat;
+}
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(26,61,109,0.5);
+}
+.hero h2{
+    position:relative;
+    color:#FFD700;
+    font-size:2.8rem;
+    z-index:2;
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header{
+    text-align:center;
+    margin:40px 20px;
+}
+.page-header h2{
+    font-family:'Great Vibes', cursive;
+    font-size:3rem;
+    color:#1A3D6D;
+    margin-bottom:10px;
+}
+.page-header p{
+    font-size:1.2rem;
+    color:#4A3624;
+    max-width:700px;
+    margin:auto;
+}
+
+/* ===== GALLERY GRID ===== */
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+    max-width:1000px;
+    margin:40px auto;
+    padding:0 20px;
+}
+.gallery-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
+    cursor:pointer;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.gallery-card img{
+    width:100%;
+    display:block;
+    transition: transform 0.4s;
+}
+.gallery-card:hover img{
+    transform: scale(1.05);
+    filter:brightness(0.85);
+}
+.gallery-caption{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(26,61,109,0.8);
+    color:#FFF8E7;
+    padding:10px;
+    text-align:center;
+    font-size:0.95rem;
+    opacity:0;
+    transition: opacity 0.3s;
+}
+.gallery-card:hover .gallery-caption{ opacity:1; }
+
+/* ===== FOOTER ===== */
+footer{
+    background:#1A3D6D;
+    padding:50px 30px 20px 30px;
+    text-align:center;
+    color:#FFF8E7;
+}
+footer .social{
+    margin:20px 0;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+footer .social a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:50px; height:50px;
+    background:#D4AF37;
+    color:#1A3D6D;
+    border-radius:50%;
+    font-size:1.3rem;
+    transition:all 0.3s;
+}
+footer .social a:hover{
+    background:#1A3D6D;
+    color:#D4AF37;
+    transform:scale(1.2);
+    box-shadow:0 0 15px rgba(212,175,55,0.6);
+}
+
+/* ===== SPONSOR ===== */
+.sponsor{
+    background:1A3D6D;
+    padding:30px 0;
+}
+.sponsor-list{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+.sponsor-list img{
+    height:45px;
+    max-width:160px;
+    opacity:0.85;
+    transition:.3s;
+}
+.sponsor-list img:hover{
+    opacity:1;
+    transform:scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+    header{ flex-direction:column; gap:10px; padding:15px 20px; }
+    .page-header h2{ font-size:2.2rem; }
+    .gallery-grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <img src="dreamina-2026-01-09-1234-Apply_a_soft_watercolor_wash_over_the_bl...-removebg-preview.png" alt="Logo Scriptoria">
+        <h1>Scriptoria Company</h1>
+    </div>
+    <nav>
+        <a href="index.html">Beranda</a>
+        <a href="about.html">Tentang Kami</a>
+        <a href="services.html">Layanan</a>
+        <a href="galery.html">Galeri</a>
+        <a href="contact.html">Kontak</a>
+    </nav>
+</header>
+
+<!-- Hero -->
+<div class="hero">
+    <h2>Galeri Lengkap</h2>
+</div>
+
+<!-- Page Header -->
+<div class="page-header">
+    <h2>Galeri Kegiatan & Produk</h2>
+    <p>Klik pada gambar untuk melihat detail kegiatan dan produk Scriptoria Company.</p>
+</div>
+
+<!-- Gallery Grid -->
+<section class="gallery-grid">
+    <div class="gallery-card">
+        <img src="https://static.republika.co.id/uploads/images/inpicture_slide/181114125711-616.jpg" alt="Kegiatan Penerbitan">
+        <div class="gallery-caption">Pameran Buku</div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://media.istockphoto.com/id/1289351194/id/vektor/templat-desain-sampul-buku-perusahaan-di-a4.jpg?s=1024x1024&w=is&k=20&c=MCL-wzBkUq9OlAsv6j-oQXOG26UA_dj0LWwE6VmVBWw=" alt="Desain Sampul">
+        <div class="gallery-caption">Desain Sampul</div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://ayemediapublishing.com/wp-content/uploads/2024/01/Revolusi-Literasi-Digital-Membuka-Era-Baru-Bagi-Penerbitan.jpg" alt="Penerbitan Digital">
+        <div class="gallery-caption">Penerbitan Digital</div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://ushpi.radenfatah.ac.id/wp-content/uploads/2023/11/workshop-percepat-TA.jpg" alt="Workshop Penulis">
+        <div class="gallery-caption">Workshop Penulis</div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://down-id.img.susercontent.com/file/2289f8103aa4f04e9689ad0403b03f24" alt="Produk Buku">
+        <div class="gallery-caption">Produk Buku</div>
+    </div>
+    <div class="gallery-card">
+        <img src="https://wawasanilmu.co.id/wp-content/uploads/2025/02/tumbnail-bedah-buku-debi-1024x1024.jpg" alt="Bedah Buku">
+        <div class="gallery-caption">Bedah Buku</div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <p>&copy; 2026 Scriptoria Company</p>
+    <p>Hubungi Kami</p>
+    <div class="social">
+        <a href="https://wa.me/6281234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/username" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/username" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/username" target="_blank"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <!-- ===== SPONSOR ===== -->
+    <div class="sponsor">
+        <div class="sponsor-list">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw3Ia5hhUTgzHWIbf4iStZZJKoCSnY-mZaDg&s" alt="Gojek">
+            <img src="https://play-lh.googleusercontent.com/ythqzIVsI_09q9T--hPCAsYRj_glbN_tZqjyJaDmoqM7-BVuGEE3DWxVdjM6rhjHcQU" alt="Sponsor">
+            <img src="https://storage.googleapis.com/bosshire-public/job-portal/companies/image/007ed156-4e15-48b7-96c5-5e8e6cb22923-Square%20Logo.png" alt="Gramedia">
+            <img src="https://futureskills.id/fs/uploads/mitras/64ba0c687557d_1689914472.png" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/LOGO-PERPUSNAS.svg" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Seal_of_the_Ministry_of_Religious_Affairs_of_the_Republic_of_Indonesia.svg" alt="Google">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg" alt="Google">
+            <img src="https://images.seeklogo.com/logo-png/37/1/tokopedia-logo-png_seeklogo-373974.png" alt="Google">
+            <img src="https://yt3.googleusercontent.com/DMpZ5fRSYeWWGtHHFwfE1uIu4xdEr5gW8ygUjDoNUoMl0iHkOEPiY4M2Llmsg6zU6FZYRX5H=s900-c-k-c0x00ffffff-no-rj" alt="Google">
+            <img src="https://stra-pi.s3.ap-southeast-1.amazonaws.com/Untitled_Project_51_20cee75366.jpg" alt="Google">
+            <img src="https://images.squarespace-cdn.com/content/v1/5ef76b6482c2bd41d40cc305/1611050881224-C9J8Q1RLLXQPYCQOSFAU/lazada.jpg" alt="Google">
+            <img src="https://upgris.ac.id/wp-content/uploads/2023/02/cropped-logo-upgris1-6-e1676989305971.png" alt="Google">
+        </div>
+    </div>
+</footer>
+
+<script>
+
+
